@@ -46,7 +46,7 @@ mkdir -p $tdir
 #
 # Use a simple filename for LaTeX with .pdf extension
 #
-cp -f $fn $tdir/i.pdf
+cp -f "$fn" $tdir/i.pdf
 
 #
 # Use LaTeX to extract the
@@ -67,7 +67,7 @@ pdfcrop $tdir/o.pdf
 # Use ghostscript to remove invisible content
 #
 gs -q -sDEVICE=pdfwrite -dNOPAUSE -dBATCH \
-    -sOutputFile=$fnout                   \
+    -sOutputFile="$fnout"                   \
     -f $tdir/o-crop.pdf
 
 rm -rf $tdir
